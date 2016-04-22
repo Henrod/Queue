@@ -57,7 +57,9 @@ void Queue::enqueue(int data) {
 }
 
 int Queue::dequeue() {
-	if (head == nullptr) throw runtime_error("Empty list");
+	if (head == nullptr) {
+		throw runtime_error("Empty list");
+	}
 
 	int tmp = head->data;
 
@@ -93,18 +95,22 @@ int main() {
 	queue.enqueue(5);
 	queue.print();
 
-	queue.dequeue();
-	queue.print();
-	queue.dequeue();
-	queue.print();
-	queue.dequeue();
-	queue.print();
-	queue.dequeue();
-	queue.print();
-	queue.dequeue();
-	queue.print();
-	queue.dequeue();
-	queue.print();
+	try {
+		queue.dequeue();
+		queue.print();
+		queue.dequeue();
+		queue.print();
+		queue.dequeue();
+		queue.print();
+		queue.dequeue();
+		queue.print();
+		queue.dequeue();
+		queue.print();
+		queue.dequeue();
+		queue.print();
+	} catch (const exception& e) {
+		cout << e.what() << endl;
+	}
 	
 	return 0;
 }
